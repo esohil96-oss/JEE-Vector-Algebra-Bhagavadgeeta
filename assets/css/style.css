@@ -1,0 +1,558 @@
+/* ============================================
+   VECTOR ALGEBRA BIBLE - PREMIUM STYLESHEET
+   Design System for JEE Advanced Textbook
+   ============================================ */
+
+:root {
+  /* Color Palette */
+  --primary: #0F4C81;
+  --secondary: #1F7A8C;
+  --accent: #FFB000;
+  --danger: #D62828;
+  --success: #2A9D8F;
+  --warning: #E76F51;
+  --light: #F8F9FA;
+  --dark: #2D3436;
+  --text: #212529;
+  --border: #E9ECEF;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  /* Typography */
+  --font-heading: "Merriweather", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-code: "Fira Code", monospace;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Line Height */
+  --lh-tight: 1.2;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: white;
+  line-height: var(--lh-normal);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--primary);
+  margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+  line-height: var(--lh-tight);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  border-bottom: 4px solid var(--accent);
+  padding-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-top: var(--spacing-2xl);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--dark);
+}
+
+h4 {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+p {
+  margin: var(--spacing-md) 0;
+  text-align: justify;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--primary);
+  color: var(--secondary);
+}
+
+/* ============================================
+   FORMULA CARDS
+   ============================================ */
+
+.formula-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-left: 6px solid var(--primary);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.formula-card .formula-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formula-card .formula-content {
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: 6px;
+  font-family: var(--font-code);
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: var(--lh-relaxed);
+  overflow-x: auto;
+}
+
+/* ============================================
+   THEOREM BOXES
+   ============================================ */
+
+.theorem-box {
+  background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+  border-left: 6px solid var(--success);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.theorem-box .theorem-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--success);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+.theorem-box .theorem-statement {
+  background: white;
+  padding: var(--spacing-md);
+  border-radius: 6px;
+  font-style: italic;
+  color: var(--dark);
+  line-height: var(--lh-relaxed);
+}
+
+/* ============================================
+   HIGHLIGHT BOXES
+   ============================================ */
+
+.highlight-box {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-left: 6px solid var(--warning);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.highlight-box .highlight-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--warning);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   MEMORY TRICKS / ADVANCED INSIGHT
+   ============================================ */
+
+.memory-trick {
+  background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  border-left: 6px solid #9c27b0;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.memory-trick .trick-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: #9c27b0;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+.advanced-insight {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-left: 6px solid #1976d2;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.advanced-insight .insight-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: #1976d2;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   JEE ALERT BOX
+   ============================================ */
+
+.jee-alert {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+  border-left: 6px solid var(--danger);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.jee-alert .alert-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--danger);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   FASTEST METHOD BOX
+   ============================================ */
+
+.fastest-method {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-left: 6px solid var(--success);
+  border-right: 3px solid var(--accent);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.fastest-method .method-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--success);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   COMMON MISTAKES BOX
+   ============================================ */
+
+.common-mistakes {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+  border-left: 6px solid #c2185b;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.common-mistakes .mistake-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: #c2185b;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   HIDDEN OBSERVATION BOX
+   ============================================ */
+
+.hidden-observation {
+  background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%);
+  border-left: 6px solid #616161;
+  border-top: 3px dashed var(--primary);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.hidden-observation .observation-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #616161;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+/* ============================================
+   EXAM STRATEGY BOX
+   ============================================ */
+
+.exam-strategy {
+  background: linear-gradient(135deg, #fff9c4 0%, #ffeb3b 20%, #ffd600 100%);
+  border-left: 6px solid var(--accent);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.exam-strategy .strategy-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: #f57f17;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   PYQ CONNECTION BOX
+   ============================================ */
+
+.pyq-connection {
+  background: linear-gradient(135deg, #f0f4c3 0%, #dcedc1 100%);
+  border-left: 6px solid #558b2f;
+  border-bottom: 3px solid var(--primary);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.pyq-connection .pyq-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #558b2f;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   SUMMARY CARD
+   ============================================ */
+
+.summary-card {
+  background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border: 2px solid var(--primary);
+}
+
+.summary-card .summary-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   LISTS
+   ============================================ */
+
+ul, ol {
+  margin: var(--spacing-md) 0 var(--spacing-md) var(--spacing-xl);
+}
+
+li {
+  margin: var(--spacing-sm) 0;
+  line-height: var(--lh-relaxed);
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table thead {
+  background: var(--primary);
+  color: white;
+}
+
+table th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid var(--primary);
+}
+
+table td {
+  padding: var(--spacing-md);
+  border: 1px solid var(--border);
+}
+
+table tbody tr:nth-child(odd) {
+  background: var(--light);
+}
+
+table tbody tr:hover {
+  background: #e8f5e9;
+  transition: all 0.3s ease;
+}
+
+/* ============================================
+   CODE BLOCKS
+   ============================================ */
+
+code {
+  font-family: var(--font-code);
+  background: var(--light);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--danger);
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--dark);
+  color: #f5f5f5;
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+  font-family: var(--font-code);
+  line-height: var(--lh-relaxed);
+}
+
+pre code {
+  background: none;
+  color: #f5f5f5;
+  padding: 0;
+}
+
+/* ============================================
+   BLOCKQUOTES
+   ============================================ */
+
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  background: var(--light);
+  font-style: italic;
+  color: var(--dark);
+  border-radius: 4px;
+}
+
+/* ============================================
+   IMAGES & DIAGRAMS
+   ============================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-lg) auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-lg) auto;
+}
+
+figure {
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9em;
+  color: var(--dark);
+  margin-top: var(--spacing-sm);
+  font-style: italic;
+}
+
+/* ============================================
+   MATH RENDERING (LaTeX via KaTeX)
+   ============================================ */
+
+.math-display {
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md);
+  background: var(--light);
+  border-radius: 8px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+}
