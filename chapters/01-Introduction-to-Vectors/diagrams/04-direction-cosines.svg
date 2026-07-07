@@ -1,0 +1,78 @@
+<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#0F4C81">Direction Cosines: 3D Angle Representation</text>
+  
+  <!-- 3D coordinate system -->
+  <g>
+    <text x="450" y="70" font-size="14" font-weight="bold" fill="#1F7A8C">Vector in 3D Space</text>
+    
+    <!-- Perspective box outline -->
+    <line x1="200" y1="300" x2="350" y2="300" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="200" y1="300" x2="150" y2="250" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="350" y1="300" x2="300" y2="250" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="200" y1="200" x2="350" y2="200" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="350" y1="200" x2="300" y2="150" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="200" y1="200" x2="150" y2="150" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="150" y1="250" x2="150" y2="150" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="300" y1="250" x2="300" y2="150" stroke="#E9ECEF" stroke-width="1"/>
+    <line x1="350" y1="300" x2="350" y2="200" stroke="#E9ECEF" stroke-width="1"/>
+    
+    <!-- Origin -->
+    <circle cx="200" cy="300" r="3" fill="#D62828"/>
+    <text x="180" y="325" font-size="12" font-weight="bold" fill="#D62828">O</text>
+    
+    <!-- Axes -->
+    <line x1="200" y1="300" x2="350" y2="300" stroke="#0F4C81" stroke-width="3"/>
+    <text x="360" y="305" font-size="13" font-weight="bold" fill="#0F4C81">X</text>
+    
+    <line x1="200" y1="300" x2="150" y2="250" stroke="#0F4C81" stroke-width="3"/>
+    <text x="130" y="245" font-size="13" font-weight="bold" fill="#0F4C81">Y</text>
+    
+    <line x1="200" y1="300" x2="200" y2="150" stroke="#0F4C81" stroke-width="3"/>
+    <text x="185" y="140" font-size="13" font-weight="bold" fill="#0F4C81">Z</text>
+    
+    <!-- Vector point P -->
+    <circle cx="280" cy="220" r="5" fill="#FFB000"/>
+    <text x="295" y="215" font-size="12" font-weight="bold" fill="#FFB000">P(x,y,z)</text>
+    
+    <!-- Vector OP -->
+    <line x1="200" y1="300" x2="280" y2="220" stroke="#FFB000" stroke-width="3"/>
+    <polygon points="280,220 275,227 268,217" fill="#FFB000"/>
+    
+    <!-- Angle α (with X-axis) -->
+    <path d="M 230 300 A 30 30 0 0 0 240 280" fill="none" stroke="#E76F51" stroke-width="2"/>
+    <text x="248" y="295" font-size="11" fill="#E76F51" font-weight="bold">α</text>
+    
+    <!-- Information box -->
+    <rect x="50" y="360" width="400" height="110" fill="#F0F4C3" stroke="#558B2F" stroke-width="2" rx="5"/>
+    <text x="70" y="380" font-size="12" font-weight="bold" fill="#558B2F">Direction Angles & Cosines:</text>
+    <text x="70" y="400" font-size="11" fill="#2D3436">• α = angle with X-axis → l = cos(α)</text>
+    <text x="70" y="420" font-size="11" fill="#2D3436">• β = angle with Y-axis → m = cos(β)</text>
+    <text x="70" y="440" font-size="11" fill="#2D3436">• γ = angle with Z-axis → n = cos(γ)</text>
+    <text x="70" y="460" font-size="11" font-weight="bold" fill="#558B2F">Fundamental Property: l² + m² + n² = 1</text>
+  </g>
+  
+  <!-- Example calculation -->
+  <g>
+    <rect x="500" y="100" width="350" height="370" fill="#ECEFF1" stroke="#0F4C81" stroke-width="2" rx="5"/>
+    
+    <text x="520" y="125" font-size="13" font-weight="bold" fill="#0F4C81">Example Calculation</text>
+    <text x="520" y="150" font-size="11" fill="#2D3436">Given: Vector v = 2î + 3ĵ + 6k̂</text>
+    
+    <!-- Step 1 -->
+    <rect x="510" y="165" width="330" height="45" fill="#FFF9C4" stroke="#F57F17" stroke-width="1" rx="3"/>
+    <text x="520" y="182" font-size="10" font-weight="bold" fill="#F57F17">Step 1: Calculate Magnitude</text>
+    <text x="520" y="200" font-size="10" fill="#2D3436">|v| = √(4 + 9 + 36) = √49 = 7</text>
+    
+    <!-- Step 2 -->
+    <rect x="510" y="220" width="330" height="70" fill="#E0F2F1" stroke="#2A9D8F" stroke-width="1" rx="3"/>
+    <text x="520" y="237" font-size="10" font-weight="bold" fill="#2A9D8F">Step 2: Direction Cosines</text>
+    <text x="520" y="255" font-size="10" fill="#2D3436">l = 2/7,  m = 3/7,  n = 6/7</text>
+    <text x="520" y="273" font-size="10" fill="#2D3436">l ≈ 0.286,  m ≈ 0.429,  n ≈ 0.857</text>
+    
+    <!-- Step 3 -->
+    <rect x="510" y="300" width="330" height="50" fill="#E8F5E9" stroke="#2A9D8F" stroke-width="1" rx="3"/>
+    <text x="520" y="317" font-size="10" font-weight="bold" fill="#2A9D8F">Verification</text>
+    <text x="520" y="335" font-size="10" fill="#2D3436">l² + m² + n² = 4/49 + 9/49 + 36/49 = 49/49 = 1 ✓</text>
+  </g>
+</svg>
