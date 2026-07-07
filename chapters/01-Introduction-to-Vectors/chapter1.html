@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Introduction to Vectors - Vector Algebra Bible for JEE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+    <style>
+        :root {
+            --primary: #0F4C81;
+            --secondary: #1F7A8C;
+            --accent: #FFB000;
+            --danger: #D62828;
+            --success: #2A9D8F;
+            --warning: #E76F51;
+            --light: #F8F9FA;
+            --dark: #2D3436;
+            --text: #212529;
+            --border: #E9ECEF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: white;
+            line-height: 1.6;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1.5rem 0 1rem 0;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent);
+            padding-bottom: 0.5rem;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin: 1rem 0;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* Boxes */
+        .formula-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-left: 6px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .formula-card .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .formula-card .content {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .theorem-box {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 6px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .theorem-box .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--success);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .theorem-box .statement {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .memory-trick {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 6px solid #9c27b0;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-trick .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: #9c27b0;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .advanced-insight {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 6px solid #1976d2;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .advanced-insight .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: #1976d2;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .jee-alert {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left: 6px solid var(--danger);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .jee-alert .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: var(--danger);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .fastest-method {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 6px solid var(--success);
+            border-right: 3px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .fastest-method .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: var(--success);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .common-mistakes {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            border-left: 6px solid #c2185b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .common-mistakes .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: #c2185b;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .hidden-observation {
+            background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%);
+            border-left: 6px solid #616161;
+            border-top: 3px dashed var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden-observation .title {
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #616161;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .exam-strategy {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffeb3b 20%, #ffd600 100%);
+            border-left: 6px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .exam-strategy .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1rem;
+            color: #f57f17;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .pyq-connection {
+            background: linear-gradient(135deg, #f0f4c3 0%, #dcedc1 100%);
+            border-left: 6px solid #558b2f;
+            border-bottom: 3px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pyq-connection .title {
+            font-family: 'Merriweather', serif;
+            font-size: 0.95rem;
+            color: #558b2f;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, #eceff1 0%, #cfd8dc 100%);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 2px solid var(--primary);
+        }
+
+        .summary-card .title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        table thead {
+            background: var(--primary);
+            color: white;
+        }
+
+        table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid var(--primary);
+        }
+
+        table td {
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        table tbody tr:nth-child(odd) {
+            background: var(--light);
+        }
+
+        table tbody tr:hover {
+            background: #e8f5e9;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+            line-height: 1.8;
+        }
+
+        /* Code */
+        code {
+            font-family: 'Fira Code', monospace;
+            background: var(--light);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--danger);
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--dark);
+            color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Fira Code', monospace;
+            line-height: 1.8;
+        }
+
+        pre code {
+            background: none;
+            color: #f5f5f5;
+            padding: 0;
+        }
+
+        /* Math */
+        .math-display {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+
+            .formula-card,
+            .theorem-box,
+            .memory-trick,
+            .advanced-insight,
+            .jee-alert,
+            .fastest-method,
+            .common-mistakes,
+            .hidden-observation,
+            .exam-strategy,
+            .pyq-connection,
+            .summary-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--border);
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+
+        .toc {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .toc h3 {
+            margin-top: 0;
+        }
+
+        .toc ol {
+            margin-left: 1.5rem;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin: 2rem 0;
+        }
+
+        .math {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Title -->
+    <h1>📚 CHAPTER 1: INTRODUCTION TO VECTORS</h1>
+    <p style="text-align: center; font-style: italic; color: var(--secondary); font-size: 1.2rem; margin-bottom: 2rem;">
+        A Complete Premium Textbook Module for JEE Advanced
+    </p>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h3>📑 TABLE OF CONTENTS</h3>
+        <ol>
+            <li><a href="#section-1">What is a Vector? - Intuitive Introduction</a></li>
+            <li><a href="#section-2">Why Were Vectors Invented?</a></li>
+            <li><a href="#section-3">Geometric vs. Algebraic Representation</a></li>
+            <li><a href="#section-4">Types of Vectors</a></li>
+            <li><a href="#section-5">Magnitude of a Vector</a></li>
+            <li><a href="#section-6">Unit Vectors and Direction</a></li>
+            <li><a href="#section-7">Direction Cosines and Direction Ratios</a></li>
+            <li><a href="#section-8">Position Vectors</a></li>
+            <li><a href="#section-9">Vector Equality</a></li>
+            <li><a href="#section-10">Operations on Vectors - Introduction</a></li>
+            <li><a href="#section-11">Applications of Vectors</a></li>
+            <li><a href="#section-12">Key Observations and Advanced Insights</a></li>
+            <li><a href="#section-13">Common Mistakes</a></li>
+            <li><a href="#section-14">Chapter Summary and Revision</a></li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 1 -->
+    <h2 id="section-1">1. WHAT IS A VECTOR? - INTUITIVE INTRODUCTION</h2>
+
+    <h3>The Physical Intuition</h3>
+    <p>Imagine you're standing at the origin of a coordinate system, and someone tells you:</p>
+    <ul>
+        <li><strong>"Go 5 km North"</strong> — This is a <strong>vector</strong>. It has both magnitude (5 km) and direction (North).</li>
+        <li><strong>"The temperature is 25°C"</strong> — This is a <strong>scalar</strong>. It only has magnitude, no direction.</li>
+    </ul>
+
+    <div class="formula-card">
+        <div class="title">📖 Definition</div>
+        <div class="content">
+            <strong>A vector</strong> is a mathematical object that has both <strong>magnitude (size/length)</strong> and <strong>direction</strong>.<br><br>
+            Vectors are typically denoted by:<br>
+            • Bold letters: <strong>v</strong>, <strong>a</strong>, <strong>AB</strong><br>
+            • Arrow notation: $\vec{v}$, $\vec{a}$, $\overrightarrow{AB}$
+        </div>
+    </div>
+
+    <h3>Why Vectors Matter</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Physical Quantity</th>
+                <th>Type</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Displacement</td>
+                <td>Vector</td>
+                <td>"5 m North"</td>
+            </tr>
+            <tr>
+                <td>Distance</td>
+                <td>Scalar</td>
+                <td>"5 m"</td>
+            </tr>
+            <tr>
+                <td>Velocity</td>
+                <td>Vector</td>
+                <td>"60 km/h East"</td>
+            </tr>
+            <tr>
+                <td>Speed</td>
+                <td>Scalar</td>
+                <td>"60 km/h"</td>
+            </tr>
+            <tr>
+                <td>Force</td>
+                <td>Vector</td>
+                <td>"100 N at 30° angle"</td>
+            </tr>
+            <tr>
+                <td>Mass</td>
+                <td>Scalar</td>
+                <td>"10 kg"</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="memory-trick">
+        <div class="title">🧠 Memory Trick: VECTOR = Velocity + DIRECTION</div>
+        <p><strong>Quick Check:</strong> If a quantity has direction, it's likely a vector. If it's just a number, it's a scalar.</p>
+        <p><strong>Vectors answer:</strong> "HOW MUCH" + "WHICH WAY"<br>
+        <strong>Scalars answer:</strong> only "HOW MUCH"</p>
+    </div>
+
+    <h3>Geometric Representation</h3>
+    <p>A vector is represented geometrically as an <strong>arrow</strong> in space:</p>
+    <pre>Vector AB has:
+- STARTING POINT: A (called tail)
+- ENDING POINT: B (called head)
+- MAGNITUDE: |AB| = √[(4-1)² + (3-0)²] = √18 = 3√2
+- DIRECTION: From A toward B</pre>
+
+    <div class="advanced-insight">
+        <div class="title">💡 Advanced Insight: Why is Direction Important in JEE?</div>
+        <p>In JEE Advanced problems, ignoring direction leads to wrong answers. For example:</p>
+        <ul>
+            <li>Two forces of equal magnitude but opposite directions can <strong>cancel each other</strong> (resultant = 0)</li>
+            <li>Same forces in same direction <strong>add up</strong> (resultant = 2F)</li>
+        </ul>
+        <p>This is why we use vectors instead of scalars in physics problems.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 2 -->
+    <h2 id="section-2">2. WHY WERE VECTORS INVENTED?</h2>
+
+    <h3>Historical Context</h3>
+    <p>Vectors were invented because:</p>
+    <ol>
+        <li><strong>Scalars are insufficient</strong> - We can't describe motion, force, or velocity with just numbers</li>
+        <li><strong>Multiple quantities need direction</strong> - Physics problems became unsolvable without direction information</li>
+        <li><strong>Geometry and Physics merged</strong> - Vectors provided a mathematical language for both</li>
+    </ol>
+
+    <h3>Real-World Problem (Why We Need Vectors)</h3>
+    <div class="jee-alert">
+        <div class="title">⚠️ JEE Alert: Critical Concept</div>
+        <p><strong>Problem:</strong> Two forces act on a box.<br>
+        • Force 1: 10 N<br>
+        • Force 2: 10 N<br>
+        <strong>Question:</strong> What's the total force?</p>
+        
+        <p><strong>Without vectors (impossible to solve):</strong> We just have 10 + 10 = 20 N, but what if they're in opposite directions?</p>
+        
+        <p><strong>With vectors:</strong><br>
+        • If both act East: Total = 20 N East<br>
+        • If they act in opposite directions: Total = 0 N (they cancel)<br>
+        • If they act at 90°: Total = 10√2 N at 45°<br>
+        <strong>Conclusion:</strong> Direction matters! We need vectors.</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 3 -->
+    <h2 id="section-3">3. GEOMETRIC VS. ALGEBRAIC REPRESENTATION</h2>
+
+    <h3>3.1 Geometric Representation</h3>
+    <p>A vector is drawn as an arrow with:</p>
+    <ul>
+        <li>Length = magnitude</li>
+        <li>Direction = direction</li>
+    </ul>
+
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>✅ Easy to visualize</li>
+        <li>✅ Good for understanding physics</li>
+        <li>✅ Useful for graphical solutions</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>❌ Difficult for precise calculations</li>
+        <li>❌ Hard to work with in 3D</li>
+    </ul>
+
+    <h3>3.2 Algebraic Representation</h3>
+    <p>A vector is represented as coordinates or components:</p>
+
+    <div class="formula-card">
+        <div class="title">📐 Algebraic Forms</div>
+        <div class="content">
+            <strong>In 2D:</strong><br>
+            $\vec{v} = (v_x, v_y)$ or $\vec{v} = v_x \hat{i} + v_y \hat{j}$<br><br>
+            <strong>In 3D:</strong><br>
+            $\vec{v} = (v_x, v_y, v_z)$ or $\vec{v} = v_x \hat{i} + v_y \hat{j} + v_z \hat{k}$<br><br>
+            Where:<br>
+            • $\hat{i}$ = unit vector in x-direction<br>
+            • $\hat{j}$ = unit vector in y-direction<br>
+            • $\hat{k}$ = unit vector in z-direction
+        </div>
+    </div>
+
+    <p><strong>Advantages:</strong></p>
+    <ul>
+        <li>✅ Precise calculations</li>
+        <li>✅ Easy for 3D vectors</li>
+        <li>✅ Suitable for algebraic operations</li>
+    </ul>
+
+    <p><strong>Disadvantages:</strong></p>
+    <ul>
+        <li>❌ Less visual</li>
+        <li>❌ Need to interpret the meaning</li>
+    </ul>
+
+    <h3>Example: Converting Between Representations</h3>
+    <p><strong>Given:</strong> A vector at angle 60° with magnitude 10 units</p>
+
+    <p><strong>Geometric:</strong> Draw an arrow of length 10 at 60° from x-axis</p>
+
+    <p><strong>Algebraic:</strong></p>
+    <div class="math-display">
+        $$\vec{v} = 10\cos(60°) \hat{i} + 10\sin(60°) \hat{j}$$
+        $$= 10 \cdot \frac{1}{2} \hat{i} + 10 \cdot \frac{\sqrt{3}}{2} \hat{j}$$
+        $$= 5\hat{i} + 5\sqrt{3}\hat{j}$$
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 5 -->
+    <h2 id="section-5">5. MAGNITUDE OF A VECTOR</h2>
+
+    <h3>Definition</h3>
+    <p><strong>Magnitude (or modulus) of a vector $\vec{v}$</strong> is the length of the vector, denoted as $|\vec{v}|$ or $||\vec{v}||$.</p>
+
+    <h3>Calculation</h3>
+
+    <div class="formula-card">
+        <div class="title">📐 Magnitude Formula</div>
+        <div class="content">
+            <strong>For 2D Vector:</strong> $\vec{v} = v_x\hat{i} + v_y\hat{j}$<br>
+            $$|\vec{v}| = \sqrt{v_x^2 + v_y^2}$$<br><br>
+            <strong>For 3D Vector:</strong> $\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k}$<br>
+            $$|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}$$
+        </div>
+    </div>
+
+    <p><strong>Example 1 (2D):</strong> $\vec{v} = 3\hat{i} + 4\hat{j}$</p>
+    <div class="math-display">
+        $$|\vec{v}| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5$$
+    </div>
+
+    <p><strong>Example 2 (3D):</strong> $\vec{v} = 1\hat{i} + 2\hat{j} + 2\hat{k}$</p>
+    <div class="math-display">
+        $$|\vec{v}| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$$
+    </div>
+
+    <h3>Properties of Magnitude</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Formula</th>
+                <th>Explanation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Non-negativity</td>
+                <td>$|\vec{v}| \geq 0$</td>
+                <td>Magnitude is always positive or zero</td>
+            </tr>
+            <tr>
+                <td>Zero magnitude</td>
+                <td>$|\vec{v}| = 0 \iff \vec{v} = \vec{0}$</td>
+                <td>Only zero vector has magnitude 0</td>
+            </tr>
+            <tr>
+                <td>Scalar multiplication</td>
+                <td>$|k\vec{v}| = |k| \cdot |\vec{v}|$</td>
+                <td>Magnitude scales with scalar</td>
+            </tr>
+            <tr>
+                <td>Triangle inequality</td>
+                <td>$|\vec{a} + \vec{b}| \leq |\vec{a}| + |\vec{b}|$</td>
+                <td>Sum of vectors ≤ sum of magnitudes</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="memory-trick">
+        <div class="title">🧠 Quick Memory Aid for Magnitude</div>
+        <p>Think of it as <strong>Pythagorean Theorem in Vector Space</strong>:</p>
+        <ul>
+            <li>In 2D: Like finding hypotenuse of right triangle</li>
+            <li>In 3D: Like finding distance from origin to point (x, y, z)</li>
+        </ul>
+        <p><strong>Formula Pattern:</strong> $\sqrt{(\text{component}_1)^2 + (\text{component}_2)^2 + (\text{component}_3)^2}$</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 6 -->
+    <h2 id="section-6">6. UNIT VECTORS AND DIRECTION</h2>
+
+    <h3>Definition</h3>
+    <p><strong>A unit vector is a vector with magnitude exactly equal to 1.</strong></p>
+    <p>Notation: $\hat{u}$, $\hat{e}$, or any letter with a hat</p>
+
+    <h3>Finding Unit Vector</h3>
+
+    <div class="formula-card">
+        <div class="title">📐 Unit Vector Formula</div>
+        <div class="content">
+            $$\hat{u} = \frac{\vec{v}}{|\vec{v}|}$$<br><br>
+            This gives us the direction of $\vec{v}$ with magnitude 1.
+        </div>
+    </div>
+
+    <p><strong>Example 1 (2D Vector):</strong></p>
+    <p>Given: $\vec{v} = 3\hat{i} + 4\hat{j}$</p>
+    <p><strong>Step 1:</strong> Find magnitude<br>
+    $|\vec{v}| = \sqrt{3^2 + 4^2} = 5$</p>
+    <p><strong>Step 2:</strong> Divide by magnitude<br>
+    $\hat{v} = \frac{3\hat{i} + 4\hat{j}}{5} = \frac{3}{5}\hat{i} + \frac{4}{5}\hat{j} = 0.6\hat{i} + 0.8\hat{j}$</p>
+    <p><strong>Verification:</strong> $|\hat{v}| = \sqrt{0.6^2 + 0.8^2} = \sqrt{0.36 + 0.64} = \sqrt{1} = 1$ ✓</p>
+
+    <p><strong>Example 2 (3D Vector):</strong></p>
+    <p>Given: $\vec{v} = 2\hat{i} - 2\hat{j} + 1\hat{k}$</p>
+    <p><strong>Step 1:</strong> Find magnitude<br>
+    $|\vec{v}| = \sqrt{2^2 + (-2)^2 + 1^2} = \sqrt{4 + 4 + 1} = 3$</p>
+    <p><strong>Step 2:</strong> Divide by magnitude<br>
+    $\hat{v} = \frac{2\hat{i} - 2\hat{j} + 1\hat{k}}{3} = \frac{2}{3}\hat{i} - \frac{2}{3}\hat{j} + \frac{1}{3}\hat{k}$</p>
+
+    <h3>Standard Basis Unit Vectors</h3>
+    <p>In 3D Cartesian coordinates, the standard unit vectors are:</p>
+    <div class="math-display">
+        $$\hat{i} = (1, 0, 0) \quad |\hat{i}| = 1$$
+        $$\hat{j} = (0, 1, 0) \quad |\hat{j}| = 1$$
+        $$\hat{k} = (0, 0, 1) \quad |\hat{k}| = 1$$
+    </div>
+
+    <p>Any vector can be written as: $\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k}$</p>
+
+    <div class="page-break"></div>
+
+    <!-- Section 7 -->
+    <h2 id="section-7">7. DIRECTION COSINES AND DIRECTION RATIOS</h2>
+
+    <h3>Direction Cosines (Detailed)</h3>
+
+    <p>For a vector $\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k}$:</p>
+
+    <div class="formula-card">
+        <div class="title">📐 Direction Cosines Definition</div>
+        <div class="content">
+            <strong>Direction cosines</strong> $l, m, n$ are:<br><br>
+            $$l = \cos \alpha = \frac{v_x}{|\vec{v}|}, \quad m = \cos \beta = \frac{v_y}{|\vec{v}|}, \quad n = \cos \gamma = \frac{v_z}{|\vec{v}|}$$<br><br>
+            Where $\alpha$, $\beta$, $\gamma$ are angles with x, y, z axes respectively.
+        </div>
+    </div>
+
+    <h3>Fundamental Property</h3>
+
+    <div class="theorem-box">
+        <div class="title">🎯 Fundamental Property of Direction Cosines</div>
+        <div class="statement">
+            $$l^2 + m^2 + n^2 = 1$$
+            This is <strong>always true</strong> for direction cosines!
+        </div>
+    </div>
+
+    <h3>Direction Ratios</h3>
+
+    <p><strong>Direction ratios</strong> (or direction numbers) are numbers proportional to the direction cosines.</p>
+
+    <p>If $a, b, c$ are direction ratios, then:
+    $$a : b : c = l : m : n$$</p>
+
+    <h3>Key Difference</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Direction Cosines</th>
+                <th>Direction Ratios</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Unique for each direction</td>
+                <td>Multiple possible (any proportional set)</td>
+            </tr>
+            <tr>
+                <td>Must satisfy $l^2 + m^2 + n^2 = 1$</td>
+                <td>No such constraint</td>
+            </tr>
+            <tr>
+                <td>Always between -1 and 1</td>
+                <td>Can be any real numbers</td>
+            </tr>
+            <tr>
+                <td>Denoted as $l, m, n$</td>
+                <td>Denoted as $a, b, c$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Example: Converting Direction Ratios to Direction Cosines</h3>
+    <p><strong>Given:</strong> Direction ratios are $2, 3, 6$</p>
+    <p><strong>Find:</strong> Direction cosines</p>
+
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Magnitude of direction ratios<br>
+    $\sqrt{2^2 + 3^2 + 6^2} = \sqrt{4 + 9 + 36} = \sqrt{49} = 7$</p>
+
+    <p>Step 2: Direction cosines<br>
+    $l = \frac{2}{7}, \quad m = \frac{3}{7}, \quad n = \frac{6}{7}$</p>
+
+    <p>Step 3: Verify<br>
+    $\left(\frac{2}{7}\right)^2 + \left(\frac{3}{7}\right)^2 + \left(\frac{6}{7}\right)^2 = \frac{4 + 9 + 36}{49} = 1$ ✓</p>
+
+    <div class="page-break"></div>
+
+    <!-- Section 8 -->
+    <h2 id="section-8">8. POSITION VECTORS</h2>
+
+    <h3>Definition</h3>
+    <p><strong>A position vector of a point P</strong> is the vector drawn from the origin O to the point P.</p>
+    <p>Notation: $\vec{OP}$ or simply $\vec{r}_P$ or $\vec{r}$</p>
+
+    <h3>Position Vector of a Point</h3>
+
+    <div class="formula-card">
+        <div class="title">📐 Position Vector Formula</div>
+        <div class="content">
+            <strong>For a point P with coordinates $(x, y, z)$:</strong><br><br>
+            $$\vec{OP} = x\hat{i} + y\hat{j} + z\hat{k}$$<br><br>
+            <strong>Magnitude:</strong><br>
+            $$|\vec{OP}| = \sqrt{x^2 + y^2 + z^2}$$<br><br>
+            This is the distance of point P from the origin.
+        </div>
+    </div>
+
+    <h3>Examples</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Point</th>
+                <th>Position Vector</th>
+                <th>Magnitude</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$(3, 4, 0)$</td>
+                <td>$3\hat{i} + 4\hat{j}$</td>
+                <td>$5$</td>
+            </tr>
+            <tr>
+                <td>$(1, 2, 2)$</td>
+                <td>$\hat{i} + 2\hat{j} + 2\hat{k}$</td>
+                <td>$3$</td>
+            </tr>
+            <tr>
+                <td>$(0, 0, 0)$</td>
+                <td>$\vec{0}$</td>
+                <td>$0$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Vector Between Two Points</h3>
+
+    <p><strong>If we have two points A and B with position vectors $\vec{r}_A$ and $\vec{r}_B$:</strong></p>
+
+    <div class="formula-card">
+        <div class="title">📐 Vector Between Two Points</div>
+        <div class="content">
+            The vector from A to B is:<br>
+            $$\vec{AB} = \vec{r}_B - \vec{r}_A$$
+        </div>
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <p>Given: A(2, 3, 1) and B(5, 7, 4)</p>
+    <p>Find: Vector $\vec{AB}$</p>
+
+    <p><strong>Solution:</strong></p>
+    <p>$\vec{r}_A = 2\hat{i} + 3\hat{j} + 1\hat{k}$<br>
+    $\vec{r}_B = 5\hat{i} + 7\hat{j} + 4\hat{k}$</p>
+
+    <p>$\vec{AB} = \vec{r}_B - \vec{r}_A = (5-2)\hat{i} + (7-3)\hat{j} + (4-1)\hat{k}$<br>
+    $= 3\hat{i} + 4\hat{j} + 3\hat{k}$</p>
+
+    <p><strong>Distance AB:</strong><br>
+    $|\vec{AB}| = \sqrt{9 + 16 + 9} = \sqrt{34}$</p>
+
+    <h3>Position Vector of Midpoint</h3>
+
+    <div class="formula-card">
+        <div class="title">📐 Midpoint Formula</div>
+        <div class="content">
+            <strong>Midpoint M of segment AB:</strong><br><br>
+            $$\vec{r}_M = \frac{\vec{r}_A + \vec{r}_B}{2}$$<br><br>
+            <strong>Coordinates of M:</strong><br>
+            $$\left(\frac{x_A+x_B}{2}, \frac{y_A+y_B}{2}, \frac{z_A+z_B}{2}\right)$$
+        </div>
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <p>Given: A(2, 4, 6) and B(4, 8, 10)<br>
+    Find: Midpoint M</p>
+
+    <p>$M = \left(\frac{2+4}{2}, \frac{4+8}{2}, \frac{6+10}{2}\right) = (3, 6, 8)$<br>
+    $\vec{r}_M = 3\hat{i} + 6\hat{j} + 8\hat{k}$</p>
+
+    <div class="hidden-observation">
+        <div class="title">🔍 Hidden Observation: Section Formula</div>
+        <p>If point P divides segment AB in ratio $m:n$ internally:</p>
+        <p>$$\vec{r}_P = \frac{n\vec{r}_A + m\vec{r}_B}{m+n}$$</p>
+        <p>For midpoint: $m = n = 1$, so $\vec{r}_M = \frac{\vec{r}_A + \vec{r}_B}{2}$</p>
+        <p>This formula is crucial for centroid, circumcenter, and other special points!</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 9 -->
+    <h2 id="section-9">9. VECTOR EQUALITY</h2>
+
+    <h3>Definition</h3>
+    <p><strong>Two vectors are equal if and only if:</strong></p>
+    <ol>
+        <li>They have the same magnitude (length)</li>
+        <li>They have the same direction</li>
+    </ol>
+
+    <h3>Algebraic Condition</h3>
+
+    <div class="formula-card">
+        <div class="title">📐 Vector Equality Condition</div>
+        <div class="content">
+            For vectors $\vec{a} = a_x\hat{i} + a_y\hat{j} + a_z\hat{k}$ and $\vec{b} = b_x\hat{i} + b_y\hat{j} + b_z\hat{k}$:<br><br>
+            $$\vec{a} = \vec{b} \iff a_x = b_x \text{ AND } a_y = b_y \text{ AND } a_z = b_z$$<br><br>
+            <strong>In simple terms:</strong> Equal vectors have identical components.
+        </div>
+    </div>
+
+    <h3>Examples</h3>
+    <p><strong>Example 1:</strong> Are these vectors equal?<br>
+    • $\vec{u} = 3\hat{i} + 4\hat{j}$<br>
+    • $\vec{v} = 3\hat{i} + 4\hat{j}$<br>
+    <strong>Answer:</strong> Yes, they are equal. ✓</p>
+
+    <p><strong>Example 2:</strong> Are these vectors equal?<br>
+    • $\vec{u} = 3\hat{i} + 4\hat{j}$ (magnitude 5)<br>
+    • $\vec{v} = 5$ (magnitude 5, but different representation)<br>
+    <strong>Answer:</strong> No, different direction. ✗</p>
+
+    <div class="common-mistakes">
+        <div class="title">❌ Common Mistake 1: Magnitude Equality ≠ Vector Equality</div>
+        <p><strong>Wrong:</strong> $|\vec{a}| = |\vec{b}|$ means $\vec{a} = \vec{b}$</p>
+        <p><strong>Right:</strong> Equal magnitude vectors can have different directions. For equality, both magnitude AND direction must match.</p>
+        <p><strong>Example:</strong><br>
+        • $\vec{a} = 3\hat{i}$ (magnitude 3, direction East)<br>
+        • $\vec{b} = 3\hat{j}$ (magnitude 3, direction North)<br>
+        • $|\vec{a}| = |\vec{b}| = 3$, but $\vec{a} \neq \vec{b}$</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 13 -->
+    <h2 id="section-13">13. COMMON MISTAKES</h2>
+
+    <h3>Mistake 1: Confusing Magnitude with Vector</h3>
+    <div class="common-mistakes">
+        <div class="title">❌ Mistake 1</div>
+        <p><strong>Wrong:</strong> $|\vec{a}| = 5, |\vec{b}| = 5 \implies \vec{a} = \vec{b}$<br>
+        <strong>Right:</strong> Equal magnitude doesn't mean equal vectors. You need same direction too.<br>
+        <strong>How to avoid:</strong> Remember: Magnitude is just ONE property. Direction is equally important.</p>
+    </div>
+
+    <h3>Mistake 2: Forgetting the Zero Vector</h3>
+    <div class="common-mistakes">
+        <div class="title">❌ Mistake 2</div>
+        <p><strong>Wrong:</strong> Assuming $|\vec{v}| = 0$ is impossible or useless<br>
+        <strong>Right:</strong> $\vec{0}$ is a valid vector representing no displacement/force/velocity<br>
+        <strong>How to avoid:</strong> In equilibrium problems, net vector = $\vec{0}$ is the answer.</p>
+    </div>
+
+    <h3>Mistake 3: Direction Cosines Don't Satisfy Linear Relationships</h3>
+    <div class="common-mistakes">
+        <div class="title">❌ Mistake 3</div>
+        <p><strong>Wrong:</strong> Assuming if $l = 0$, then $m^2 + n^2 = 1$ is special<br>
+        <strong>Right:</strong> It's NOT special - it always holds: $l^2 + m^2 + n^2 = 1$<br>
+        <strong>How to avoid:</strong> This is fundamental property, not derived from special cases.</p>
+    </div>
+
+    <h3>Mistake 4: Negative Components and Direction</h3>
+    <div class="common-mistakes">
+        <div class="title">❌ Mistake 4</div>
+        <p><strong>Wrong:</strong> Thinking negative components mean negative vectors<br>
+        <strong>Right:</strong> Components can be negative; magnitude is always positive<br>
+        <strong>Example:</strong> $\vec{v} = -3\hat{i} + 4\hat{j}$ has magnitude $\sqrt{9+16} = 5$ (positive!)<br>
+        <strong>How to avoid:</strong> Magnitude formula uses squares: $|\vec{v}| = \sqrt{v_x^2 + v_y^2}$ (always positive)</p>
+    </div>
+
+    <div class="fastest-method">
+        <div class="title">⚡ Fastest Method: Quick Checks for Errors</div>
+        <ol>
+            <li><strong>Magnitude Check:</strong> Is $|\vec{v}| \geq 0$? If negative, error!</li>
+            <li><strong>Component Check:</strong> Are components real numbers? If not, error!</li>
+            <li><strong>Direction Cosines Check:</strong> Does $l^2 + m^2 + n^2 = 1$? If not, error!</li>
+            <li><strong>Unit Vector Check:</strong> If claiming $\hat{u}$ is unit, does $|\hat{u}| = 1$?</li>
+            <li><strong>Vector Equation Check:</strong> If two vectors equal, do ALL components match?</li>
+        </ol>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Section 14 -->
+    <h2 id="section-14">14. CHAPTER SUMMARY AND REVISION</h2>
+
+    <h3>Essential Definitions Summary</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Concept</th>
+                <th>Definition</th>
+                <th>Key Formula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Vector</strong></td>
+                <td>Magnitude + Direction</td>
+                <td>$\vec{v} = v_x\hat{i} + v_y\hat{j} + v_z\hat{k}$</td>
+            </tr>
+            <tr>
+                <td><strong>Magnitude</strong></td>
+                <td>Length of vector</td>
+                <td>$|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</td>
+            </tr>
+            <tr>
+                <td><strong>Unit Vector</strong></td>
+                <td>Vector with magnitude 1</td>
+                <td>$\hat{v} = \frac{\vec{v}}{|\vec{v}|}$</td>
+            </tr>
+            <tr>
+                <td><strong>Direction Cosines</strong></td>
+                <td>Cosines of angles with axes</td>
+                <td>$l^2 + m^2 + n^2 = 1$</td>
+            </tr>
+            <tr>
+                <td><strong>Position Vector</strong></td>
+                <td>Vector from origin to point</td>
+                <td>$\vec{r} = x\hat{i} + y\hat{j} + z\hat{k}$</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Top 10 Formulas from Chapter 1</h3>
+    <div class="summary-card">
+        <div class="title">📋 Essential Formulas</div>
+        <ol>
+            <li>$|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}$</li>
+            <li>$\hat{v} = \frac{\vec{v}}{|\vec{v}|}$</li>
+            <li>$\vec{r}_P = x\hat{i} + y\hat{j} + z\hat{k}$ for point P(x,y,z)</li>
+            <li>$\vec{AB} = \vec{r}_B - \vec{r}_A$</li>
+            <li>$|AB| = \sqrt{(x_B-x_A)^2 + (y_B-y_A)^2 + (z_B-z_A)^2}$</li>
+            <li>$l = \frac{v_x}{|\vec{v}|}, m = \frac{v_y}{|\vec{v}|}, n = \frac{v_z}{|\vec{v}|}$</li>
+            <li>$l^2 + m^2 + n^2 = 1$</li>
+            <li>$l = \frac{a}{\sqrt{a^2+b^2+c^2}}$ (from ratios)</li>
+            <li>$M = \left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}, \frac{z_1+z_2}{2}\right)$</li>
+            <li>$P = \left(\frac{mx_2+nx_1}{m+n}, \frac{my_2+ny_1}{m+n}, \frac{mz_2+nz_1}{m+n}\right)$ (section formula)</li>
+        </ol>
+    </div>
+
+    <div class="exam-strategy">
+        <div class="title">💡 Exam Strategy: Starting Vector Problems</div>
+        <p><strong>When you see a vector problem:</strong></p>
+        <ol>
+            <li><strong>Define coordinate system</strong> - Choose origin and axes wisely</li>
+            <li><strong>Write position vectors</strong> - For all given points</li>
+            <li><strong>Identify the question</strong> - Magnitude? Direction? Relationship?</li>
+            <li><strong>Choose representation</strong> - Geometric for visualization, algebraic for calculation</li>
+            <li><strong>Verify answer</strong> - Check units, magnitudes, directions make sense</li>
+        </ol>
+        <p><strong>Common JEE twist:</strong> Problem statement may use geometric language ("5 m northeast"), but solving requires converting to algebraic form.</p>
+    </div>
+
+    <h3>One-Minute Revision Checklist</h3>
+    <ul>
+        <li>☐ <strong>Vector Definition:</strong> Magnitude + Direction ✓</li>
+        <li>☐ <strong>Magnitude Formula:</strong> $\sqrt{\text{sum of squares}}$ ✓</li>
+        <li>☐ <strong>Unit Vector:</strong> Divide by magnitude ✓</li>
+        <li>☐ <strong>Position Vector:</strong> From origin to point ✓</li>
+        <li>☐ <strong>Direction Cosines:</strong> $l^2 + m^2 + n^2 = 1$ ✓</li>
+        <li>☐ <strong>Direction Ratios:</strong> Proportional to components ✓</li>
+        <li>☐ <strong>Vector Between Points:</strong> End - Start ✓</li>
+        <li>☐ <strong>Vector Equality:</strong> All components must match ✓</li>
+    </ul>
+
+    <div class="pyq-connection">
+        <div class="title">📚 PYQ Connection: JEE Advanced Themes</div>
+        <p>Chapter 1 concepts appear in:</p>
+        <ul>
+            <li><strong>Particle motion problems</strong> (velocity, displacement vectors)</li>
+            <li><strong>Equilibrium problems</strong> (zero resultant vector)</li>
+            <li><strong>Geometry proofs</strong> (collinearity, midpoint formulas)</li>
+            <li><strong>Advanced: Relative motion</strong> (velocity vectors in different frames)</li>
+        </ul>
+        <p><strong>Typical JEE Advanced twist:</strong> Often combines multiple concepts from Chapter 1 with dot/cross products (Chapters 3-4).</p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- Footer -->
+    <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+        <p style="font-style: italic; color: var(--secondary); font-size: 1.1rem;">
+            "Success in JEE Advanced comes not from memorizing formulas, but from understanding why they work."
+        </p>
+        <p style="color: var(--text); margin-top: 1rem;">
+            <strong>End of Chapter 1</strong><br>
+            Total Pages Equivalent: ~35-40 pages (premium formatting)<br>
+            Estimated Reading Time: 4-5 hours<br>
+            Recommended Practice: 2-3 hours
+        </p>
+    </div>
+
+    <script>
+        // For printing to PDF
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
